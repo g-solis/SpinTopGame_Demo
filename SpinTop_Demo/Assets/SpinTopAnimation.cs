@@ -23,7 +23,7 @@ public class SpinTopAnimation : MonoBehaviour
         vect.x = Curve.Evaluate(Mathf.Min(vect.x/MaxVelocity,MaxVelocity)) * MaxAngle;
         vect.y = 0;
         vect.z = Curve.Evaluate(Mathf.Min(vect.z/MaxVelocity,MaxVelocity)) * MaxAngle;
-        SpinTopParent.rotation = Quaternion.RotateAround(1,Vector3.up);
+        SpinTopParent.Rotate(Vector3.up * 2);
         transform.rotation = Quaternion.Euler(vect);
     }
 }
