@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake() 
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
     }
 
     void FixedUpdate() 
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        Debug.Log("A");
         inputDirection = value.Get<Vector2>();
     }
 }

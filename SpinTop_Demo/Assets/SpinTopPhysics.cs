@@ -14,11 +14,12 @@ public class SpinTopPhysics : MonoBehaviour
 
     void Awake() 
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
     }
 
     void FixedUpdate() 
     {
+        transform.position = rb.transform.position;
         rb.AddTorque(spinVelocity, ForceMode.Force);
     }
 
