@@ -19,8 +19,7 @@ public class SpinTopPhysics : MonoBehaviour
 
     void FixedUpdate() 
     {
-        transform.position = rb.transform.position;
-        rb.AddTorque(spinVelocity, ForceMode.Force);
+        // rb.AddTorque(spinVelocity, ForceMode.Force);
     }
 
     void OnCollisionEnter(Collision other) 
