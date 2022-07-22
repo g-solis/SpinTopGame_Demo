@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
+      propertyPath: speedIA
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
       propertyPath: shouldFollowPlayer
       value: 1
       objectReference: {fileID: 0}

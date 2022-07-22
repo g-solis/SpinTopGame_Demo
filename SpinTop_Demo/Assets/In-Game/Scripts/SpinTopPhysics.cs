@@ -6,23 +6,33 @@ public class SpinTopPhysics : MonoBehaviour
 {
     [SerializeField] Vector3 spinVelocity = Vector3.zero;
     [SerializeField] float impulseOnHit = 100;
-    [SerializeField] ParticleSystem sparkParticles;
 
     Rigidbody rb;
+    bool dead = false;
+    SpinTopAnimation animator = null;
+
+    public void Kill()
+    {
+        dead = true;
+        animator?.PlayDeathAnimation(transform.position);
+        Destroy(gameObject);
+    }
 
     void Awake() 
     {
+        animator = GetComponent<SpinTopAnimation>();
         rb = GetComponentInChildren<Rigidbody>();
     }
 
-    void FixedUpdate() 
-    {
-        // rb.AddTorque(spinVelocity, ForceMode.Force);
-    }
+    // void FixedUpdate() 
+    // {
+    //     if(!dead)
+    //         rb.AddTorque(spinVelocity, ForceMode.Force);
+    // }
 
     void OnCollisionEnter(Collision other) 
     {
-        if (other.gameObject.GetComponent<SpinTopPhysics>() != null)
+        if (other.gameObject.GetComponent<SpinTopPhysics>() != null && !dead)
         {
             Vector3 hitDirection = other.transform.position - transform.position;
             hitDirection = hitDirection.normalized;
@@ -35,16 +45,7 @@ public class SpinTopPhysics : MonoBehaviour
             }
 
             other.rigidbody.AddForce(hitDirection * impulseOnHit, ForceMode.Impulse);
-            PlaySparkParticles(hitDirection, hitPoint);
-        }
-    }
-
-    void PlaySparkParticles(Vector3 hitDirection, Vector3 hitPosition)
-    {
-        if (sparkParticles != null)
-        {
-            ParticleSystem instance = Instantiate(sparkParticles, hitPosition, Quaternion.Euler(hitDirection));
-            Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+            animator?.PlaySparkParticles(hitDirection, hitPoint);
         }
     }
 }

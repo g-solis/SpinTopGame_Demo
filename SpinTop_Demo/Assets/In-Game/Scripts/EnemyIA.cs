@@ -15,8 +15,9 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float circleHeight;
 
     [Header("Random Movement")]
-    [SerializeField] float delayChangeDirection = 1f;
+    [SerializeField] Vector2 delayChangeDirectionRange = new Vector2(0.5f,1);
     Vector3 currentRandomDirection;
+    float changeDirectionDelay = -1;
     float changeDirectionCounter = 0f;
 
     [Header("Run From Player Movement")]
@@ -60,9 +61,16 @@ public class EnemyIA : MonoBehaviour
 
     void FollowPlayer()
     {
-        Vector3 directionToPlayer = player.position - transform.position;
-        directionToPlayer.y = 0;
-        rb.AddForce(directionToPlayer * speedIA, ForceMode.Force);
+        if (player != null)
+        {
+            Vector3 directionToPlayer = player.position - transform.position;
+            directionToPlayer.y = 0;
+            rb.AddForce(directionToPlayer * speedIA, ForceMode.Force);
+        }
+        else
+        {
+            RandomMovement();
+        }
     }
 
     void RotateAroundTheArena()
@@ -89,10 +97,11 @@ public class EnemyIA : MonoBehaviour
     {
         changeDirectionCounter += Time.fixedDeltaTime;
 
-        if (changeDirectionCounter >= delayChangeDirection)
+        if (changeDirectionCounter >= changeDirectionDelay)
         {
             currentRandomDirection = GetRandomDirectionalVector();
             changeDirectionCounter = 0f;
+            changeDirectionDelay = Random.Range(delayChangeDirectionRange.x,delayChangeDirectionRange.y);
         }
 
         rb.AddForce(currentRandomDirection * speedIA, ForceMode.Force);
@@ -110,14 +119,21 @@ public class EnemyIA : MonoBehaviour
 
     void RunFromPlayer()
     {
-        float distanceFromPlayer = Vector3.Distance(player.position, transform.position);
-
-        Vector3 directionToPlayer = player.position - transform.position;
-        directionToPlayer.y = 0;
-
-        if (distanceFromPlayer < maxDistanceFromPlayer)
+        if (player != null)
         {
-            rb.AddForce(-directionToPlayer * speedIA, ForceMode.Force);
+            float distanceFromPlayer = Vector3.Distance(player.position, transform.position);
+
+            Vector3 directionToPlayer = player.position - transform.position;
+            directionToPlayer.y = 0;
+
+            if (distanceFromPlayer < maxDistanceFromPlayer)
+            {
+                rb.AddForce(-directionToPlayer * speedIA, ForceMode.Force);
+            }
+        }
+        else
+        {
+            RandomMovement();
         }
     }
 }

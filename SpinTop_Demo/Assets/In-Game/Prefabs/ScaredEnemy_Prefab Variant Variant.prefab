@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
       propertyPath: speedIA
-      value: 1000
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
       propertyPath: shouldRunFromPlayer

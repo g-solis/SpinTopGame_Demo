@@ -5,20 +5,39 @@ using UnityEngine.Animations;
 
 public class SpinTopAnimation : MonoBehaviour
 {
-    [SerializeField]
-    Transform SpinTopParent;
+    [SerializeField] ParticleSystem sparkParticles;
+    [SerializeField] ParticleSystem deathParticles;
 
-    [SerializeField]
-    AnimationCurve Curve;
+    [SerializeField] Transform SpinTopParent;
 
-    [SerializeField]
-    float MaxVelocity = 500;
+    [SerializeField] AnimationCurve Curve;
+
+    [SerializeField] float MaxVelocity = 500;
 
     [SerializeField]
     [Range(0.0f,45.0f)]
     float MaxAngle = 45;
 
     private Rigidbody rb;
+
+    public void PlaySparkParticles(Vector3 hitDirection, Vector3 hitPosition)
+    {
+        if (sparkParticles != null)
+        {
+            ParticleSystem instance = Instantiate(sparkParticles, hitPosition, Quaternion.Euler(hitDirection));
+            Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        }
+    }
+
+    public void PlayDeathAnimation(Vector3 position)
+    {
+        if (deathParticles != null)
+        {
+            ParticleSystem instance = Instantiate(deathParticles, position, Quaternion.identity);
+            ParticleSystem smoke = instance.transform.GetChild(0).GetComponent<ParticleSystem>();
+            Destroy(instance.gameObject, smoke.main.duration + smoke.main.startLifetime.constantMax);
+        }
+    }
 
     void Awake()
     {

@@ -162,8 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinVelocity: {x: 0, y: 100, z: 0}
   impulseOnHit: 1000
-  sparkParticles: {fileID: 1672529830987506563, guid: fa917219abbfcdc40b1dea00e6ff1f3f,
-    type: 3}
 --- !u!114 &4619638702609531145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39848bc3c374ef64dab4e5bfcbd9b651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkParticles: {fileID: 1672529830987506563, guid: fa917219abbfcdc40b1dea00e6ff1f3f,
+    type: 3}
+  deathParticles: {fileID: 1672529830987506563, guid: d0ef19f8bedcf704191b027683af8d88,
+    type: 3}
   SpinTopParent: {fileID: 5720999834268440857}
   Curve:
     serializedVersion: 2
