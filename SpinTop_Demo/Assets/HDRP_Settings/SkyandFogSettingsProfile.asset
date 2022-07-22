@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Value: 6378100
   planetCenterPosition:
     m_OverrideState: 1
-    m_Value: {x: 0, y: -10000000, z: 0}
+    m_Value: {x: 0, y: -7000000, z: 0}
   airDensityR:
     m_OverrideState: 0
     m_Value: 0.04534

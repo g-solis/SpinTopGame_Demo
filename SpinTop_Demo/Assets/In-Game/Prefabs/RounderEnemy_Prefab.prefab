@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
+      propertyPath: speedIA
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
       propertyPath: shouldRotateAround
       value: 1
       objectReference: {fileID: 0}
@@ -59,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 8241680020016199608, guid: 7f6c978920e713b45a6476f16552c073,
         type: 3}
       propertyPath: m_Name
-      value: BaseEnemy_Prefab
+      value: RounderEnemy_Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8241680020016199611, guid: 7f6c978920e713b45a6476f16552c073,
         type: 3}
