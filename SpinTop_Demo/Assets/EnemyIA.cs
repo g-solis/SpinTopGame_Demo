@@ -54,6 +54,7 @@ public class EnemyIA : MonoBehaviour
     void FollowPlayer()
     {
         Vector3 directionToPlayer = player.position - transform.position;
+        directionToPlayer.y = 0;
         rb.AddForce(directionToPlayer * speedIA, ForceMode.Force);
     }
 
@@ -92,8 +93,9 @@ public class EnemyIA : MonoBehaviour
 
     Vector3 GetRandomDirectionalVector()
     {
-        float randomX = Random.Range(-1f, 1f);
-        float randomZ = Random.Range(-1f, 1f);
+        Vector2 randomPointOnCircle = Random.insideUnitCircle.normalized;
+        float randomX = randomPointOnCircle.x;
+        float randomZ = randomPointOnCircle.y;
         float randomY = 0f;
 
         return new Vector3(randomX, randomY, randomZ);
