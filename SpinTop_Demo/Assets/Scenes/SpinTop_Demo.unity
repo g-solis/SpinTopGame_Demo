@@ -369,13 +369,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSpawn: 0
   timeBetweenSpawns: 1
-  spawnHeight: 20
+  spawnHeight: 25
   startImpulse: 10
   enemies:
   - {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257, type: 3}
   - {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
   - {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb, type: 3}
-  spawnRadius: 180
+  spawnRadius: 100
 --- !u!4 &89428218
 Transform:
   m_ObjectHideFlags: 0
