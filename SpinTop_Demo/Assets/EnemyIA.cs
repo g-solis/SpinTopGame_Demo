@@ -8,16 +8,19 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] bool shouldFollowPlayer = false;
     [SerializeField] bool shouldRotateAround = false;
     [SerializeField] bool shouldBeRandom = false;
+    [SerializeField] bool shouldRunFromPlayer = false;
 
     [Header("Circular Movement")]
     [SerializeField] float circleWidth;
     [SerializeField] float circleHeight;
 
     [Header("Random Movement")]
-
     [SerializeField] float delayChangeDirection = 1f;
     Vector3 currentRandomDirection;
     float changeDirectionCounter = 0f;
+
+    [Header("Run From Player Movement")]
+    [SerializeField] float maxDistanceFromPlayer;
     
     float timeCounter = 0f;
 
@@ -48,6 +51,10 @@ public class EnemyIA : MonoBehaviour
         else if (shouldBeRandom)
         {
             RandomMovement();
+        }
+        else if (shouldRunFromPlayer)
+        {
+            RunFromPlayer();
         }
     }
 
@@ -99,5 +106,18 @@ public class EnemyIA : MonoBehaviour
         float randomY = 0f;
 
         return new Vector3(randomX, randomY, randomZ);
+    }
+
+    void RunFromPlayer()
+    {
+        float distanceFromPlayer = Vector3.Distance(player.position, transform.position);
+
+        Vector3 directionToPlayer = player.position - transform.position;
+        directionToPlayer.y = 0;
+
+        if (distanceFromPlayer < maxDistanceFromPlayer)
+        {
+            rb.AddForce(-directionToPlayer * speedIA, ForceMode.Force);
+        }
     }
 }
