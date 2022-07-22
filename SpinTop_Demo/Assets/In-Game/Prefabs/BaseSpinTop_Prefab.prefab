@@ -162,6 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinVelocity: {x: 0, y: 100, z: 0}
   impulseOnHit: 1000
+  sparkParticles: {fileID: 1672529830987506563, guid: fa917219abbfcdc40b1dea00e6ff1f3f,
+    type: 3}
 --- !u!114 &4619638702609531145
 MonoBehaviour:
   m_ObjectHideFlags: 0
