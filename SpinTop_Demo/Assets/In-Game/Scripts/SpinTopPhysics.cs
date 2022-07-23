@@ -46,6 +46,12 @@ public class SpinTopPhysics : MonoBehaviour
 
             other.rigidbody.AddForce(hitDirection * impulseOnHit, ForceMode.Impulse);
             animator?.PlaySparkParticles(hitDirection, hitPoint);
+            EnemyIA enemy = other.gameObject.GetComponent<EnemyIA>();
+
+            if (enemy != null)
+            {
+                enemy.StopAvoidingFallForATime();
+            }
         }
     }
 }

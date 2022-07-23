@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConfusedEnemy_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8875318801579426794, guid: fac21c78c02f5a7449a0e3d24add90bb,
         type: 3}
       propertyPath: m_RootOrder
@@ -261,6 +266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScaredEnemy_Prefab Variant Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d51fa0d3a5c83e45b95cf47defe2257, type: 3}
 --- !u!1 &40074276
@@ -368,13 +378,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSpawn: 0
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 0.5
   spawnHeight: 25
   startImpulse: 10
   enemies:
   - {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257, type: 3}
   - {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
   - {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb, type: 3}
+  - {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633, type: 3}
   spawnRadius: 100
 --- !u!4 &89428218
 Transform:
@@ -408,6 +419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChaserEnemy_Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1588431191647986026, guid: 15e03e0d0200bd04d9a7568d0208a633,
         type: 3}
@@ -1056,6 +1072,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChaserEnemy_Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1588431191647986026, guid: 15e03e0d0200bd04d9a7568d0208a633,
         type: 3}
       propertyPath: m_RootOrder
@@ -1180,6 +1201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScaredEnemy_Prefab Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d51fa0d3a5c83e45b95cf47defe2257, type: 3}
 --- !u!1 &983852255
@@ -1291,6 +1317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChaserEnemy_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1588431191647986026, guid: 15e03e0d0200bd04d9a7568d0208a633,
         type: 3}
@@ -1416,6 +1447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RounderEnemy_Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
 --- !u!1001 &1220542690
@@ -1429,6 +1465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConfusedEnemy_Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8875318801579426794, guid: fac21c78c02f5a7449a0e3d24add90bb,
         type: 3}
@@ -1600,7 +1641,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.99499166, y: 1}
+    m_SensorSize: {x: 1.7780821, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -1859,6 +1900,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RounderEnemy_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
 --- !u!1001 &1648192155
@@ -1872,6 +1918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConfusedEnemy_Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8875318801579426794, guid: fac21c78c02f5a7449a0e3d24add90bb,
         type: 3}
@@ -2369,10 +2420,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 669667601212614788, guid: fac21c78c02f5a7449a0e3d24add90bb,
+        type: 3}
+      propertyPath: delayBeforeHit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
         type: 3}
       propertyPath: m_Name
       value: ConfusedEnemy_Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8875318801579426794, guid: fac21c78c02f5a7449a0e3d24add90bb,
         type: 3}
@@ -2715,6 +2776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RounderEnemy_Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
 --- !u!1 &2113154267
@@ -2881,6 +2947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arena_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114078415362416809, guid: 4912f2d50c3e524438c76205aa8e8248,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4912f2d50c3e524438c76205aa8e8248, type: 3}

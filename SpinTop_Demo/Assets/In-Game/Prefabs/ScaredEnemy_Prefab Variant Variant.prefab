@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1927191765, guid: 7f6c978920e713b45a6476f16552c073, type: 3}
       propertyPath: maxDistanceFromPlayer
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 133792506058986116, guid: 7f6c978920e713b45a6476f16552c073,
         type: 3}
