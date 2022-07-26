@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] ForceMode forceMode;
     [SerializeField] float dashSpeed = 10;
-    [SerializeField] float dashDelay = 2;
+    [SerializeField] float dashDelay = 0.5f;
+    [SerializeField] float dashDelayCooldown = 2;
     [SerializeField] TextMeshPro timerDash;
     [SerializeField] ParticleSystem dashParticles;
     [SerializeField] Vector3 sparkParticlesOffset;
     bool isDashing = false;
     bool canDash = false;
+    bool dashCooldown = false;
 
     Vector3 dashNewPos;
     Vector2 inputDirection;
@@ -85,6 +87,13 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
     }
 
+    IEnumerator DashDelayCoolDown()
+    {
+        dashCooldown = true;
+        yield return new WaitForSeconds(dashDelayCooldown);
+        dashCooldown = false;
+    }
+
     void OnMove(InputValue value)
     {
         inputDirection = value.Get<Vector2>();
@@ -92,9 +101,10 @@ public class PlayerController : MonoBehaviour
     
     void OnFire(InputValue value)
     {
-        if (value.isPressed && !isDashing)
+        if (value.isPressed && !isDashing && !dashCooldown)
         {
             canDash = true;
+            StartCoroutine(DashDelayCoolDown());
         }
     }
 
