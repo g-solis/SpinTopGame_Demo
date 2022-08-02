@@ -4,19 +4,59 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [System.Serializable]
+    struct Enemy
+    {
+        public GameObject Prefab;
+        public int Weight;
+        public int Cost;
+        // public Restriction Restriction;
+    }
 
+    // [System.Flags]
+    // [System.Serializable]
+    // enum Restriction
+    // {
+    //     None = 0,
+    //     Holes = 1,
+    //     Walls = 2,
+    //     Mounts = 4
+    // }
+
+    [Header("Pool System")]
     [SerializeField] bool canSpawn;
-    [SerializeField] float timeBetweenSpawns = 1f;
+    [SerializeField] float creditsRegenRate = 2;
+    [SerializeField] Vector2 timeBetweenSpawnsRange = new Vector2(5,10);
+    [SerializeField] List<Enemy> enemies = new List<Enemy>();
+
+    [Header("Spawn Parameters")]
     [SerializeField] float spawnHeight = 20f;
     [SerializeField] float startImpulse = 20f;
-    [SerializeField] List<GameObject> enemies;
     [SerializeField] float spawnRadius = 10;
+    
+    float credits = 5;
 
     Transform playerTransform;
+
+    public void IncreaseCreditsRegen(float ammount)
+    {
+        creditsRegenRate += ammount;
+    }
 
     void Awake() 
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
+    }
+
+    //TODO: Remove, Debug Only
+    void OnDebug1()
+    {
+        IncreaseCreditsRegen(1);
+    }
+
+    void Update()
+    {
+        credits += creditsRegenRate * Time.deltaTime;
     }
 
     void OnEnable()
@@ -24,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
         canSpawn = true;
         StartCoroutine(SpawnEnemies());
     }
+    
 
     void OnDisable()
     {
@@ -35,29 +76,30 @@ public class EnemySpawner : MonoBehaviour
     {
         while (canSpawn)
         {
-            int enemyIndex = Random.Range(0, enemies.Count);
-            GameObject enemy = enemies[enemyIndex];
-
-            Vector2 spawnPositionBounds = RandomPointOnUnitCircle(spawnRadius);
-
-            Vector3 spawnPositon = new Vector3(spawnPositionBounds.x, spawnHeight, spawnPositionBounds.y);
+            List<int> pool = new List<int>();
             
-            GameObject instance = Instantiate(enemy, spawnPositon, Quaternion.identity);
+            for(int i=0;i<enemies.Count;i++)
+            {
+                pool.AddXTimes(i,enemies[i].Weight);
+            }
 
-            Vector3 directionToCenter = transform.position - instance.transform.position;
+            Enemy enemy = enemies[pool.Random()];
 
-            instance.GetComponent<Rigidbody>().AddForce(directionToCenter * startImpulse, ForceMode.Impulse);
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            while(credits >= enemy.Cost)
+            {
+                credits -= enemy.Cost;
+
+                Vector2 spawnPositionBounds = RandomUtils.RandomPointOnCircleEdge(spawnRadius);
+                Vector3 spawnPositon = new Vector3(spawnPositionBounds.x, spawnHeight, spawnPositionBounds.y);
+                Vector3 directionToCenter = transform.position - spawnPositon;
+
+                GameObject instance = Instantiate(enemy.Prefab, spawnPositon, Quaternion.identity);
+                instance.GetComponent<Rigidbody>().AddForce(directionToCenter * startImpulse, ForceMode.Impulse);
+            }
+
+
+            yield return new WaitForSeconds(RandomUtils.Vector2Range(timeBetweenSpawnsRange));
         }
-    }
-
-    Vector2 RandomPointOnUnitCircle(float radius)
-    {
-        float angle = Random.Range(0f, Mathf.PI * 2);
-        float x = Mathf.Sin(angle) * radius;
-        float y = Mathf.Cos(angle) * radius;
-
-        return new Vector2(x, y);
     }
 
     private void OnDrawGizmos() 

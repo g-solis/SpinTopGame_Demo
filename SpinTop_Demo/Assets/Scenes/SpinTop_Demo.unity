@@ -358,6 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89428218}
   - component: {fileID: 89428217}
+  - component: {fileID: 89428219}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -378,14 +379,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSpawn: 0
-  timeBetweenSpawns: 0.5
+  creditsRegenRate: 1.5
+  timeBetweenSpawnsRange: {x: 8, y: 15}
+  enemies:
+  - Prefab: {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb,
+      type: 3}
+    Weight: 4
+    Cost: 1
+  - Prefab: {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6,
+      type: 3}
+    Weight: 3
+    Cost: 2
+  - Prefab: {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257,
+      type: 3}
+    Weight: 2
+    Cost: 2
+  - Prefab: {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633,
+      type: 3}
+    Weight: 1
+    Cost: 4
   spawnHeight: 25
   startImpulse: 10
-  enemies:
-  - {fileID: 5997168353282705454, guid: 1d51fa0d3a5c83e45b95cf47defe2257, type: 3}
-  - {fileID: 3177078364799931166, guid: 647925d20c948b24ab3829fbbef200d6, type: 3}
-  - {fileID: 8875318801579426793, guid: fac21c78c02f5a7449a0e3d24add90bb, type: 3}
-  - {fileID: 1588431191647986025, guid: 15e03e0d0200bd04d9a7568d0208a633, type: 3}
   spawnRadius: 100
 --- !u!4 &89428218
 Transform:
@@ -402,6 +416,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89428219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89428216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f26c1c83ab5061e44a49f5b8e2e26c19,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Debug
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &205083480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 191892043550932352, guid: 2b465c05594ca2f4cb9a8eafe4d11ed5,
@@ -1834,7 +1879,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7799044, y: 1}
+    m_SensorSize: {x: 1.3353846, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16

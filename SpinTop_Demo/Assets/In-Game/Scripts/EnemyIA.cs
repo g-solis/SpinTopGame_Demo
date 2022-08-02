@@ -39,13 +39,13 @@ public class EnemyIA : MonoBehaviour
     float timeCounter = 0f;
 
     Rigidbody rb;
-    Transform player;
+    Transform player = null;
     Transform enemySpawner;
 
     void Awake() 
     {
         rb = GetComponent<Rigidbody>();
-        player = FindObjectOfType<PlayerController>().transform;
+        player = FindObjectOfType<PlayerController>()?.transform;
         enemySpawner = FindObjectOfType<EnemySpawner>().transform;
     }
 
