@@ -95,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
 
                 GameObject instance = Instantiate(enemy.Prefab, spawnPositon, Quaternion.identity);
                 instance.GetComponent<Rigidbody>().AddForce(directionToCenter * startImpulse, ForceMode.Impulse);
+                instance.transform.SetParent(transform);
             }
 
 
