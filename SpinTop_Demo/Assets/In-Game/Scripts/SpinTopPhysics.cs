@@ -15,6 +15,7 @@ public class SpinTopPhysics : MonoBehaviour
     {
         dead = true;
         animator?.PlayDeathAnimation(transform.position);
+        SoundManager.PlaySFX(ConstantDatabase.SoundDatabase.SpinTopExplosionSFX,transform.position);
         Destroy(gameObject);
     }
 
@@ -51,6 +52,12 @@ public class SpinTopPhysics : MonoBehaviour
             if (enemy != null)
             {
                 enemy.StopAvoidingFallForATime();
+            }
+
+            // To make that only one of the spintops plays the sound
+            if(gameObject.GetInstanceID() > other.gameObject.GetInstanceID())
+            {
+                SoundManager.PlaySFX(ConstantDatabase.SoundDatabase.SpinTopCollideSFX,transform.position);
             }
         }
     }

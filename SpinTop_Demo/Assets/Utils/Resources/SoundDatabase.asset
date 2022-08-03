@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75a32b9448c81147b495f6a11a6765b, type: 3}
+  m_Name: SoundDatabase
+  m_EditorClassIdentifier: 
+  FirstLevelOST:
+    Clip: {fileID: 0}
+    Volume: 0
+  SpinTopCollideSFX:
+  - Clip: {fileID: 8300000, guid: 6b69f8d704af7bd4d876f9b600a0454b, type: 3}
+    StartTime: 0
+    Volume: 30
+  - Clip: {fileID: 8300000, guid: d645f8438085ab940b64ffaa0f888ac1, type: 3}
+    StartTime: 0
+    Volume: 30
+  - Clip: {fileID: 8300000, guid: 3de2140caeaad7e46acfadb9c29eb9ec, type: 3}
+    StartTime: 0
+    Volume: 30
+  SpinTopExplosionSFX:
+    Clip: {fileID: 8300000, guid: cabe784259fa47246be9f094d76b8d89, type: 3}
+    StartTime: 0
+    Volume: 20
